@@ -1,0 +1,763 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emalah Foundation School & College — Building minds, shaping futures.">
+  <title>Emalah Foundation School & College</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #14263D;
+      --navy-light: #203A55;
+      --ivory: #F7F5EF;
+      --champagne: #D7C7A3;
+      --white: #FFFFFF;
+      --text: #263442;
+      --muted: #687583;
+      --border: #E5E1D8;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { width: 100%; display: block; object-fit: cover; }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--serif);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+
+    .eyebrow {
+      color: #927B51;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .topbar {
+      background: #0E1D30;
+      color: white;
+      padding: 9px 0;
+      font-size: .78rem;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 45px;
+      width: 45px;
+      border: 1px solid var(--champagne);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 25px;
+      color: var(--navy);
+    }
+
+    .brand strong {
+      display: block;
+      color: var(--navy);
+      font-size: .85rem;
+      letter-spacing: 1px;
+    }
+
+    .brand small {
+      display: block;
+      color: #927B51;
+      letter-spacing: 3px;
+      font-size: .65rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: .83rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: .2s;
+    }
+
+    .nav-links a:hover { color: #A58B5C; }
+
+    .nav-button, .button {
+      background: var(--navy);
+      color: white;
+      padding: 13px 21px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: .85rem;
+      border: 1px solid var(--navy);
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .nav-button:hover, .button:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 9px 13px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: var(--navy);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 610px;
+    }
+
+    .hero-content {
+      padding: 100px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero .eyebrow { color: var(--champagne); }
+
+    .hero h1 {
+      color: white;
+      margin: 20px 0;
+    }
+
+    .hero p {
+      color: #D8E0E7;
+      max-width: 510px;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero .button {
+      background: var(--champagne);
+      color: var(--navy);
+      border-color: var(--champagne);
+    }
+
+    .hero .outline {
+      background: transparent;
+      border-color: #AAB4BE;
+      color: white;
+    }
+
+    .hero-image img {
+      height: 100%;
+      min-height: 610px;
+    }
+
+    /* SECTIONS */
+
+    section { padding: 90px 0; }
+
+    .section-heading {
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 { margin-top: 12px; }
+
+    .section-heading p {
+      max-width: 650px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .welcome-grid img {
+      height: 440px;
+    }
+
+    .welcome-grid p {
+      color: var(--muted);
+      margin: 20px 0;
+    }
+
+    .stats {
+      background: var(--ivory);
+      padding: 35px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .stat {
+      padding: 10px 30px;
+      border-right: 1px solid #D8D2C6;
+    }
+
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border: 0; }
+
+    .stat strong {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--navy);
+      display: block;
+    }
+
+    .stat span {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .ivory-section { background: var(--ivory); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 23px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 30px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(20,38,61,.08);
+    }
+
+    .card-number {
+      color: #A58B5C;
+      font-family: var(--serif);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 { margin-bottom: 12px; }
+
+    .card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .image-card {
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .image-card img { height: 230px; }
+
+    .image-card div { padding: 24px; }
+
+    .image-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 9px;
+    }
+
+    .quote {
+      background: var(--navy);
+      color: white;
+      padding: 65px;
+    }
+
+    .quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem,3vw,2.5rem);
+      line-height: 1.4;
+    }
+
+    .quote p {
+      color: var(--champagne);
+      margin-top: 20px;
+    }
+
+    .cta {
+      background: var(--ivory);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 50px 0;
+    }
+
+    .cta h2 { font-size: 2rem; }
+
+    /* FOOTER */
+
+    footer {
+      background: #0E1D30;
+      color: white;
+      padding: 65px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 35px;
+    }
+
+    footer h3 {
+      color: white;
+      font-family: var(--sans);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    footer p, footer a {
+      color: #B8C3CE;
+      font-size: .85rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    footer a:hover { color: var(--champagne); }
+
+    .copyright {
+      border-top: 1px solid #304052;
+      margin-top: 45px;
+      padding-top: 20px;
+      color: #AEB9C4;
+      font-size: .76rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-button { display: none; }
+      .menu-toggle { display: block; }
+    }
+
+    @media(max-width:700px) {
+      section { padding: 60px 0; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-content { padding: 75px 7%; }
+      .hero-image img { min-height: 330px; height: 330px; }
+
+      .welcome-grid,
+      .cards,
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .welcome-grid { gap: 30px; }
+
+      .stats-grid { grid-template-columns: 1fr; }
+
+      .stat, .stat:first-child {
+        padding: 20px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat:last-child { border: 0; }
+
+      .quote { padding: 35px; }
+
+      .cta {
+        display: block;
+      }
+
+      .cta .button { margin-top: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>PIA Colony, Misrial Road, Rawalpindi Cantt.</span>
+    <span>+92 51 5165335 &nbsp; | &nbsp; efsehk@gmail.com</span>
+  </div>
+</div>
+
+<header>
+  <div class="container navbar">
+    <a href="index.html" class="brand">
+      <div class="logo">E</div>
+      <div>
+        <strong>EMALAH FOUNDATION</strong>
+        <small>SCHOOL & COLLEGE</small>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="campus.html">Campus</a>
+      <a href="student-life.html">Student Life</a>
+      <a href="results.html">Results</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <a href="admissions.html" class="nav-button">Admissions →</a>
+    <button class="menu-toggle" id="menuToggle">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" style="padding:0">
+    <div class="hero-content">
+      <span class="eyebrow">Emalah Foundation School & College</span>
+      <h1>Building Minds.<br>Shaping Futures.</h1>
+      <p>
+        A welcoming educational community where academic ambition,
+        character and curiosity grow together.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="about.html" class="button">Discover Emalah →</a>
+        <a href="admissions.html" class="button outline">Explore Admissions</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1400&q=85" alt="Educational institution">
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="stat">
+        <strong>1992</strong>
+        <span>Educational journey began as Yasir Academy</span>
+      </div>
+      <div class="stat">
+        <strong>2014</strong>
+        <span>Emalah Foundation School & College established</span>
+      </div>
+      <div class="stat">
+        <strong>FBISE</strong>
+        <span>Affiliated for SSC and HSSC, as stated in the prospectus</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container welcome-grid">
+      <div>
+        <span class="eyebrow">Welcome to Emalah</span>
+        <h2>Education with purpose. Growth with direction.</h2>
+
+        <p>
+          We believe education is about more than academic outcomes.
+          It is also about developing confidence, integrity,
+          responsibility and a lasting curiosity about the world.
+        </p>
+
+        <p>
+          Emalah Foundation's educational journey grew from Yasir Academy,
+          established in 1992, into a School & College in April 2014.
+        </p>
+
+        <a href="about.html" class="button">Discover Our Story →</a>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85" alt="Students learning">
+    </div>
+  </section>
+
+  <section class="ivory-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Academic pathways</span>
+        <h2>Learning at Every Stage.</h2>
+        <p>
+          Explore the educational sections and subject pathways
+          described in the institution's published prospectus.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-number">01</div>
+          <h3>Elementary</h3>
+          <p>
+            Classes VI–VIII, building foundations across languages,
+            mathematics, sciences and computer studies.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Secondary</h3>
+          <p>
+            Classes IX–X, preparing students for the
+            Secondary School Certificate pathway.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Higher Secondary</h3>
+          <p>
+            Classes XI–XII, with Pre-Engineering, Pre-Medical
+            and General Science groups.
+          </p>
+        </article>
+      </div>
+
+      <br><br>
+      <a href="academics.html" class="button">Explore Academics →</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">A place to grow</span>
+        <h2>More Than a Classroom.</h2>
+        <p>
+          Facilities and activities help create a broader educational
+          experience, supporting discovery, teamwork and development.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=85" alt="Science laboratory">
+          <div>
+            <h3>Spaces for Learning</h3>
+            <p>Science and computer laboratories, a library and an auditorium.</p>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85" alt="Students playing sports">
+          <div>
+            <h3>Participation & Sport</h3>
+            <p>Sports, house activities, debates, quizzes and science exhibitions.</p>
+          </div>
+        </article>
+
+        <article class="image-card">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85" alt="Students collaborating">
+          <div>
+            <h3>A Connected Community</h3>
+            <p>Student leadership, parent engagement and community service.</p>
+          </div>
+        </article>
+      </div>
+
+      <br><br>
+      <a href="campus.html" class="button">Explore Campus →</a>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="quote">
+        <span class="eyebrow">Our educational belief</span>
+        <br><br>
+        <blockquote>
+          “Education is the passport to the future, for tomorrow belongs
+          to those who prepare for it today.”
+        </blockquote>
+        <p>— Malcolm X</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container welcome-grid">
+      <img src="https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=1000&q=85" alt="Teacher supporting students">
+
+      <div>
+        <span class="eyebrow">Admissions</span>
+        <h2>Begin Your Next Chapter.</h2>
+
+        <p>
+          Families considering Emalah can explore the published
+          admission pathways, eligibility information and required documents.
+        </p>
+
+        <p>
+          Admission criteria and fee policies can change.
+          Contact the school to confirm current availability and requirements.
+        </p>
+
+        <a href="admissions.html" class="button">Admission Information →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="cta">
+  <div class="container">
+    <span class="eyebrow">Take the next step</span>
+    <h2>Discover the Emalah Experience.</h2>
+    <a href="contact.html" class="button">Contact the School →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="brand">
+          <div class="logo" style="color:white">E</div>
+          <div>
+            <strong style="color:white">EMALAH FOUNDATION</strong>
+            <small>SCHOOL & COLLEGE</small>
+          </div>
+        </div>
+        <br>
+        <p>
+          Learning today. Leading tomorrow.
+          An educational community committed to academic development,
+          character and service.
+        </p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="academics.html">Academics</a>
+          <a href="campus.html">Campus</a>
+          <a href="student-life.html">Student Life</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Information</h3>
+        <div class="footer-links">
+          <a href="admissions.html">Admissions</a>
+          <a href="results.html">Results</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Yasir House, CB-668, Street #12,<br>
+        PIA Colony, Misrial Road,<br>
+        Rawalpindi Cantt.</p>
+        <br>
+        <p>+92 51 5165335</p>
+        <p>efsehk@gmail.com</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Emalah Foundation School & College. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    menuToggle.textContent =
+      navLinks.classList.contains("open") ? "Close" : "Menu";
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.textContent = "Menu";
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
